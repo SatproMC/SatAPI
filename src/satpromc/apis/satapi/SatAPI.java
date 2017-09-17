@@ -6,6 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 import satpromc.apis.satapi.advanced_punishments.AdvancedBan;
+import satpromc.apis.satapi.events.PlayerDamage;
+import satpromc.apis.satapi.events.PlayerJoinLeave;
 import satpromc.apis.satapi.player.PlayerManipulator;
 
 public class SatAPI extends JavaPlugin {
@@ -16,6 +18,9 @@ public class SatAPI extends JavaPlugin {
              "&7------------[ &aSatAPI &7]------------\n" +
                 "&8Version: &dBETA &90.1\n" +
                 "\n&8Made by: &7SatproMC"));
+
+        getServer().getPluginManager().registerEvents(new PlayerJoinLeave(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
     }
 
     public static SatAPI getInstance() {

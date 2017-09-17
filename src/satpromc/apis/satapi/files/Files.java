@@ -43,6 +43,11 @@ public class Files {
     }
 
 
-
-
+    public static void savePlayerDataYaml() {
+        try {
+            playerdata.save(playerdata_yml);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

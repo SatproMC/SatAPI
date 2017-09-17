@@ -12,7 +12,12 @@ public class AdvancedBan {
         Date d = Calendar.getInstance().getTime();
         Files.getBansYaml().set(p.getName() + ".time", d.getTime() + "");
         Files.getBansYaml().set(p.getName() + ".reason", reason);
+        Files.saveBansYaml();
     }
+
+    /*public static void unBanPlayer(Player p){
+         Files.getBansYaml().set(p.getName(), null);
+    } */
 
 
 
