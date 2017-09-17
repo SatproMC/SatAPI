@@ -4,5 +4,5 @@ This plugin and API has many cool features. This is mainly an API, but it could 
 
 
 
-Please report issues using this as an #API in the 'Issues' Section. 
+Please report issues using this as an API in the 'Issues' Section. 
 
