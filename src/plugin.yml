@@ -1,0 +1,8 @@
+name: SatAPI
+main: satpromc.apis.satapi.SatAPI
+description: SatAPI - Made by SatproMC
+
+commands:
+  satapi:
+    description: The descriptive command for this API. (SatAPI).
+
