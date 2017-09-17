@@ -12,6 +12,9 @@ public class Files {
     private static File bans_yml = new File(SatAPI.getInstance().getDataFolder(), "bans.yml");
     private static YamlConfiguration bans = YamlConfiguration.loadConfiguration(bans_yml);
 
+    private static File playerdata_yml = new File(SatAPI.getInstance().getDataFolder(), "player_data.yml");
+    private static YamlConfiguration playerdata = YamlConfiguration.loadConfiguration(playerdata_yml);
+
 
     public static void saveBansYaml(){
         try {
@@ -23,11 +26,23 @@ public class Files {
 
 
 
-    public static File getBansFiles() {
+    public static File getBansFile() {
         return bans_yml;
     }
 
     public static YamlConfiguration getBansYaml() {
         return bans;
     }
+
+    public static File getPlayerdataFile(){
+        return playerdata_yml;
+    }
+
+    public static YamlConfiguration getPlayerDataYaml(){
+        return playerdata;
+    }
+
+
+
+
 }
