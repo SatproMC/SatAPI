@@ -40,12 +40,7 @@ public class SatAPI extends JavaPlugin {
     }
 
 
-    public String getBansFormat() {
-        return ChatColor.translateAlternateColorCodes('&', getConfig().getString("bans-format")
-                        .replace("%%title%%", getConfig().getString("title"))
-                //.replace("%%")
-        );
-    }
+
 
 
     @Override
