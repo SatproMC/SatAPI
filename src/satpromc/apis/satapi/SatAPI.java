@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import satpromc.apis.satapi.advanced_punishments.AdvancedBan;
 import satpromc.apis.satapi.events.PlayerDamage;
 import satpromc.apis.satapi.events.PlayerJoinLeave;
+import satpromc.apis.satapi.files.Files;
 import satpromc.apis.satapi.player.PlayerManipulator;
 
 public class SatAPI extends JavaPlugin {
@@ -40,7 +41,9 @@ public class SatAPI extends JavaPlugin {
     }
 
 
-
+    public Files getFiles(){
+        return new Files();
+    }
 
 
     @Override

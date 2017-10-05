@@ -13,23 +13,43 @@ public class AdvancedBan {
     public static void banPlayer(Player p, String reason){
         Date d = Calendar.getInstance().getTime();
         Files.getBansYaml().set(p.getName() + ".time", d.getTime() + "");
+        Files.getBansYaml().set(p.getName() + ".time", d.getTime() + "");
         Files.getBansYaml().set(p.getName() + ".reason", reason);
+        Files.getBansYaml().set(p.getName() + ".bannedby", "Unknown");
+        Files.saveBansYaml();
+    }
+
+    public static void banPlayer(Player p, String reason, Date timeLeft){
+        Date d = Calendar.getInstance().getTime();
+        Files.getBansYaml().set(p.getName() + ".time", d.getTime() + "");
+        Files.getBansYaml().set(p.getName() + ".reason", reason);
+        Files.getBansYaml().set(p.getName() + ".bannedby", "Unknown");
+        Files.saveBansYaml();
+    }
+
+    public static void banPlayer(Player p, Player bannedBy, String reason){
+        Date d = Calendar.getInstance().getTime();
+        Files.getBansYaml().set(p.getName() + ".time", d.getTime() + "");
+        Files.getBansYaml().set(p.getName() + ".reason", reason);
+        Files.getBansYaml().set(p.getName() + ".bannedby", bannedBy.getName());
         Files.saveBansYaml();
     }
 
     /*public static void unbanPlayer(Player p){
 
-         Files.getBansYaml().set(p.getName(), null);
+         Files.getBansYaml().set(p.getName() + ".*", null);
     } */
 
 
 
-    public String getBansFormat() {
+    public String getBansFormat(Player banned) {
         return ChatColor.translateAlternateColorCodes('&', SatAPI.getInstance().getConfig().getString("bans-format")
                         .replace("%%title%%", SatAPI.getInstance().getConfig().getString("title"))
-                        .replace("%%_%%", SatAPI.getInstance().getConfig().getString(""))
-                        .replace("", SatAPI.getInstance().getConfig().getString(""))
+                        .replace("%%time%%", Files.getBansYaml().getString(banned.getName() + ".time"))
+                        .replace("%%nextline%%", SatAPI.getInstance().getConfig().getString("\n"))
+                        .replace("%%bannedby%%", Files.getBansYaml().getString(banned.getName() + ".bannedby"))
                         .replace("", "")
+
 
                 //.replace("%%")
         );
