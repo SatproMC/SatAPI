@@ -1,5 +1,6 @@
 package satpromc.apis.satapi.events.custom_events;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 public class SEvent implements Listener  {
@@ -8,6 +9,9 @@ public class SEvent implements Listener  {
 
     }
 
+
+
+    private Player p;
     private boolean cancelled = false;
 
     public void setCancelled(boolean b){
@@ -16,6 +20,15 @@ public class SEvent implements Listener  {
 
     public boolean isCancelled(){
         return cancelled;
+    }
+
+
+    void setPlayer(Player p){
+
+    }
+
+    public Player getPlayer() {
+        return p;
     }
 
 

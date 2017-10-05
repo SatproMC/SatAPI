@@ -8,6 +8,8 @@ import org.bukkit.util.Vector;
 import satpromc.apis.satapi.SatAPI;
 import satpromc.apis.satapi.files.Files;
 
+import java.util.Random;
+
 
 public class PlayerManipulator {
 
@@ -38,14 +40,19 @@ public class PlayerManipulator {
         p.setVelocity(v.setY(p.getLocation().getY() + height));
     }
 
-    public void disableKnockback(Player p){
-        Files.getPlayerDataYaml().set(p.getName() + ".knockback-enabled", true);
-        Files.savePlayerDataYaml();
-    }
 
-    public void enableKnockback(Player p){
-        Files.getPlayerDataYaml().set(p.getName() + ".knockback-enabled", false);
-        Files.savePlayerDataYaml();
+
+
+    public void updateKnockback(Player p, Boolean b){
+        if (b){
+            Files.getPlayerDataYaml().set(p.getName() + ".knockback-enabled", true);
+            Files.savePlayerDataYaml();
+        } else {
+            Files.getPlayerDataYaml().set(p.getName() + ".knockback-enabled", false);
+            Files.savePlayerDataYaml();
+        }
+
+
     }
 
 
@@ -64,6 +71,7 @@ public class PlayerManipulator {
     public void teleport(Player p, String world,  double x, double y, double z){
         if (Bukkit.getWorld(world) == null){
             System.out.println("Looks like the used method 'teleport' in SatAPI was handed over a fake world. I know, right?!");
+            return;
         }
         p.teleport(new Location(SatAPI.getInstance().getServer().getWorld(world), x, y, z));
     }

@@ -16,6 +16,7 @@ public class TNTIgnitionEvent extends SEvent implements Listener {
                 if (this.isCancelled()){
                     e.setCancelled(true);
                 }
+                this.setPlayer(e.getPlayer());
             }
         }
     }
