@@ -15,15 +15,16 @@ public class PlayerManipulator {
     public void setInvisible(Player p){
         for (Player all : Bukkit.getOnlinePlayers()){
             all.hidePlayer(p);
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', SatAPI.getInstance().getConfig().getString("set-invisible-message-true")));
         }
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', SatAPI.getInstance().getConfig().getString("set-invisible-message-true")));
     }
 
     public void setVisible(Player p){
         for (Player all : Bukkit.getOnlinePlayers()){
             all.showPlayer(p);
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', SatAPI.getInstance().getConfig().getString("set-invisible-message-false")));
         }
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', SatAPI.getInstance().getConfig().getString("set-invisible-message-false")));
+
     }
 
     public void launchPlayer(Player p, double distance){
@@ -61,7 +62,7 @@ public class PlayerManipulator {
     }
 
     public void teleport(Player p, String world,  double x, double y, double z){
-        if (world == null){
+        if (Bukkit.getWorld(world) == null){
             System.out.println("Looks like the used method 'teleport' in SatAPI was handed over a fake world. I know, right?!");
         }
         p.teleport(new Location(SatAPI.getInstance().getServer().getWorld(world), x, y, z));
