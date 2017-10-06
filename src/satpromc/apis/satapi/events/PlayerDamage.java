@@ -12,6 +12,7 @@ public class PlayerDamage implements Listener {
 
     @EventHandler
     public void onPlayerDamageByEntity(EntityDamageByEntityEvent e){
+
         if (e.getEntity() instanceof Player){
             Player p = (Player) e.getEntity();
 

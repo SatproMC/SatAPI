@@ -51,18 +51,18 @@ public class PlayerManipulator {
             Files.getPlayerDataYaml().set(p.getName() + ".knockback-enabled", false);
             Files.savePlayerDataYaml();
         }
-
-
     }
 
 
 
-    public boolean getEnabledKnockback(Player p){
+    public boolean isKnockbackEnabled(Player p){
         if (Files.getPlayerDataYaml().isBoolean(p.getName() + ".knockback-enabled")){
-            return false;
-        }
+            System.out.println("Note: Data is not available for " + p.getName() + " for usage in PlayerManipulator.getEnabledKnockback(Player p).");
+            return true;
+        } else
         return Files.getPlayerDataYaml().getBoolean(p.getName() + ".knockback-enabled");
     }
+
 
     public void teleport(Player p, double x, double y, double z){
         p.teleport(new Location(p.getWorld(), x, y, z));
@@ -71,10 +71,10 @@ public class PlayerManipulator {
     public void teleport(Player p, String world,  double x, double y, double z){
         if (Bukkit.getWorld(world) == null){
             System.out.println("Looks like the used method 'teleport' in SatAPI was handed over a fake world. I know, right?!");
-            return;
-        }
+        } else
         p.teleport(new Location(SatAPI.getInstance().getServer().getWorld(world), x, y, z));
     }
+
 
 
 
