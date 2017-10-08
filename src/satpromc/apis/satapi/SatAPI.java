@@ -14,16 +14,15 @@ import satpromc.apis.satapi.player.PlayerManipulator;
 
 public class SatAPI extends JavaPlugin {
 
+
+
     @Override
     public void onEnable() {
-        Bukkit.getConsoleSender().sendMessage(cc(
-             "&7------------[ &aSatAPI &7]------------\n" +
-                "&8Version: &dBETA &90.1\n" +
-                "\n&8Made by: &7SatproMC"));
+        Bukkit.getConsoleSender().sendMessage(cc("&7------------[ &aSatAPI &7]------------"));
+        Bukkit.getConsoleSender().sendMessage(cc("&8Version: &dBETA &90.1"));
+        Bukkit.getConsoleSender().sendMessage(cc("&8Made by: &7SatproMC"));
 
-        getServer().getPluginManager().registerEvents(new PlayerJoinLeave(), this);
-        getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
-        getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
+        setupSatAPI();
     }
 
     public static SatAPI getInstance() {
@@ -47,6 +46,12 @@ public class SatAPI extends JavaPlugin {
         return new Files();
     }
 
+
+    public  void setupSatAPI(){
+        this.getServer().getPluginManager().registerEvents(new PlayerJoinLeave(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
