@@ -23,6 +23,8 @@ public class TNTIgniteEvent extends Event {
         this.tnt = tnt;
     }
 
+
+
     public Boolean isCancelled(){
         return this.cancelled;
     }
@@ -48,4 +50,6 @@ public class TNTIgniteEvent extends Event {
     public Block getTNT() {
         return this.tnt;
     }
+
+
 }

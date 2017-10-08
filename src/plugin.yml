@@ -3,6 +3,7 @@ main: satpromc.apis.satapi.SatAPI
 description: SatAPI - Made by SatproMC
 version: 0.2.6
 
+
 commands:
   satapi:
     description: The descriptive command for this API. (SatAPI).

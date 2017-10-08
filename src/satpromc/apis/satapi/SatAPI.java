@@ -17,13 +17,19 @@ public class SatAPI extends JavaPlugin {
 
     private static SatAPI instance;
 
+    public boolean MmagicTitles = true;
+
     @Override
     public void onEnable() {
         Bukkit.getConsoleSender().sendMessage(cc("&7------------[ &aSatAPI &7]------------"));
         Bukkit.getConsoleSender().sendMessage(cc("&8Version: &dBETA &90.1"));
         Bukkit.getConsoleSender().sendMessage(cc("&8Made by: &7SatproMC"));
 
-        instance = new SatAPI();
+        if (Bukkit.getServer().getPluginManager().getPlugin("MmagicTitleS") == null){
+            this.MmagicTitles = false;
+        }
+
+        instance = this;
         this.setupSatAPI();
     }
 
@@ -58,6 +64,9 @@ public class SatAPI extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new PlayerJoinLeave(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
+
+        DependencyManager.getInstance().check();
+
     }
 
     @Override
