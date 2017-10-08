@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class AdvancedBan {
 
+    // TODO --> Implement Kicks at 'PlayerJoinleave'
+
     public static void banPlayer(Player p, String reason){
         Date d = Calendar.getInstance().getTime();
         Files.getBansYaml().set(p.getName() + ".time", d.getTime() + "");

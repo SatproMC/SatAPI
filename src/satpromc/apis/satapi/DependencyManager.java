@@ -1,5 +1,6 @@
 package satpromc.apis.satapi;
 
+import cf.magsoo.magictitles.MagicTitles;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
@@ -14,14 +15,25 @@ public class DependencyManager {
     public ArrayList<Plugin> soft_depends = new ArrayList<>();
 
 
-    public boolean MMAGIC_TITLES = false;
+    private MagicTitles magicTitles = new MagicTitles();
 
-    public void check(){
-        if (Bukkit.getServer().getPluginManager().getPlugin("MagicTitles") != null){
-            this.MMAGIC_TITLES = true;
-        } else this.MMAGIC_TITLES = false;
+    public MagicTitles getMagicTitles() {
+        return magicTitles;
     }
 
+    public boolean MMAGIC_TITLES = false;
+
+    boolean check(){
+        if (Bukkit.getServer().getPluginManager().getPlugin("MagicTitles") != null){
+            this.MMAGIC_TITLES = true;
+            return true;
+        } else this.MMAGIC_TITLES = false;
+        return false;
+    }
+
+    public void execute(){
+        soft_depends.add(getMagicTitles());
+    }
 
 
 

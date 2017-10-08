@@ -10,6 +10,7 @@ import satpromc.apis.satapi.events.PlayerDamage;
 import satpromc.apis.satapi.events.PlayerInteract;
 import satpromc.apis.satapi.events.PlayerJoinLeave;
 import satpromc.apis.satapi.files.Files;
+import satpromc.apis.satapi.mmagic_titles.MmagicTitleS;
 import satpromc.apis.satapi.player.PlayerManipulator;
 
 public class SatAPI extends JavaPlugin {
@@ -28,6 +29,8 @@ public class SatAPI extends JavaPlugin {
         if (Bukkit.getServer().getPluginManager().getPlugin("MmagicTitleS") == null){
             this.MmagicTitles = false;
         }
+
+        MmagicTitleS.execute();
 
         instance = this;
         this.setupSatAPI();
