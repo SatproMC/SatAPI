@@ -15,6 +15,7 @@ import satpromc.apis.satapi.player.PlayerManipulator;
 public class SatAPI extends JavaPlugin {
 
 
+    private static SatAPI instance;
 
     @Override
     public void onEnable() {
@@ -22,11 +23,17 @@ public class SatAPI extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(cc("&8Version: &dBETA &90.1"));
         Bukkit.getConsoleSender().sendMessage(cc("&8Made by: &7SatproMC"));
 
-        setupSatAPI();
+        instance = new SatAPI();
+        this.setupSatAPI();
+    }
+
+    @Override
+    public void onDisable() {
+        instance = null;
     }
 
     public static SatAPI getInstance() {
-        return new SatAPI();
+        return instance;
     }
 
     private String cc(String s) {
@@ -47,7 +54,7 @@ public class SatAPI extends JavaPlugin {
     }
 
 
-    public  void setupSatAPI(){
+    private void setupSatAPI(){
         this.getServer().getPluginManager().registerEvents(new PlayerJoinLeave(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerDamage(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
